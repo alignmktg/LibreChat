@@ -1,0 +1,62 @@
+# LibreChat Railway Configuration
+# Streamlined config for Railway deployment
+version: 1.2.1
+
+# Enable caching
+cache: true
+
+# Interface configuration - enable all the features you want
+interface:
+  # Core features
+  endpointsMenu: true
+  modelSelect: true
+  parameters: true
+  sidePanel: true
+  presets: true
+  
+  # Enable missing features
+  prompts: true
+  bookmarks: true
+  multiConvo: true
+  agents: true
+  memories: true
+
+# Endpoints configuration
+endpoints:
+  # Agents configuration
+  agents:
+    recursionLimit: 50
+    maxRecursionLimit: 100
+    disableBuilder: false
+    capabilities: ["execute_code", "file_search", "actions", "tools"]
+    
+  # Custom endpoints
+  custom:
+    # OpenRouter without Grok models
+    - name: "OpenRouter"
+      apiKey: "${OPENROUTER_KEY}"
+      baseURL: "https://openrouter.ai/api/v1"
+      models:
+        default: [
+          "anthropic/claude-3-5-sonnet", 
+          "anthropic/claude-3-opus", 
+          "openai/gpt-4-turbo", 
+          "openai/gpt-4o",
+          "google/gemini-pro"
+        ]
+        fetch: false  # Don't fetch all models, use only specified ones
+      titleConvo: true
+      titleModel: "current_model"
+      summarize: false
+      summaryModel: "current_model"
+      forcePrompt: false
+      modelDisplayLabel: "OpenRouter"
+
+# Memory configuration
+memory:
+  disabled: false
+  personalize: true
+
+# Registration settings
+registration:
+  socialLogins: ['github', 'google', 'discord']
