@@ -90,7 +90,11 @@
     "@eslint/js": "^9.20.0",
     "@microsoft/eslint-formatter-sarif": "^3.1.0",
     "@playwright/test": "^1.50.1",
+    "@types/node": "^24.0.14",
+    "@types/react": "^19.1.8",
     "@types/react-virtualized": "^9.22.0",
+    "@types/whatwg-url": "^13.0.0",
+    "@types/xml2js": "^0.4.14",
     "cross-env": "^7.0.3",
     "elliptic": "^6.6.1",
     "eslint": "^9.20.1",
@@ -142,5 +146,8 @@
       "admin/",
       "packages/"
     ]
+  },
+  "dependencies": {
+    "workbox-build": "^7.3.0"
   }
 }
